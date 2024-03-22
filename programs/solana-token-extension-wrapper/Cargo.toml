@@ -1,0 +1,28 @@
+[package]
+name = "solana-token-extension-wrapper"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "solana_token_extension_wrapper"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+#anchor-lang = { version = '0.29.0', features = ["init-if-needed"] }
+#anchor-spl = '0.29.0'
+anchor-lang = { git = "https://github.com/dankelleher/anchor", branch = "spl-token-2022-upgrade", features = ["init-if-needed"] }
+anchor-spl = { git = "https://github.com/dankelleher/anchor", branch = "spl-token-2022-upgrade", features = [ "token", "associated_token", "mint", "token_2022", "token_2022_extensions"] }
+#anchor-lang = { git = "https://github.com/coral-xyz/anchor", branch = "master", features = ["init-if-needed"] }
+#anchor-spl = { git = "https://github.com/coral-xyz/anchor", branch = "master", features = [ "token", "associated_token", "mint", "token_2022"] }
+#anchor-lang = { git = "https://github.com/bridgesplit/anchor", branch = "master", features = ["init-if-needed"] }
+#anchor-spl = { git = "https://github.com/bridgesplit/anchor", branch = "master", features = [ "token", "associated_token", "mint", "token_2022", "token_2022_extensions"] }
+#spl-token = { version = "4", features = ["no-entrypoint"], optional = true }
+#spl-token-2022 = { version = "2.0.2", features = ["no-entrypoint"], optional = true }

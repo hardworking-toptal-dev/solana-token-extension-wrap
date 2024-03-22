@@ -1,0 +1,22 @@
+[toolchain]
+
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+solana_token_extension_wrapper = "2ToisBtFhnbpXQ8BUCnReWbDpSMMDoiTMr84DHtCUutc"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "Localnet"
+wallet = "~/.config/solana/id.json"
+
+[[test.genesis]]
+address = "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+program = "tests/fixtures/spl_token_2022.so"
+
+[scripts]
+test = "yarn run ts-mocha -pb ./tsconfig.json -t 1000000 tests/**/*.ts"
